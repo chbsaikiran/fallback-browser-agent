@@ -1,0 +1,11 @@
+<!doctype html><html><body>
+<label for="city">From city</label>
+<!-- Mimics picky JS widgets: value is wiped unless it arrived through real key presses -->
+<input id="city" placeholder="Enter city">
+<script>
+  const el = document.getElementById('city');
+  let keyed = false;
+  el.addEventListener('keydown', () => { keyed = true; });
+  el.addEventListener('input', () => { if (!keyed) el.value = ''; keyed = false; });
+</script>
+</body></html>

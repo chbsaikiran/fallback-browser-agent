@@ -1,0 +1,6 @@
+<!doctype html><html><body>
+<!-- Invisible overlay steals real mouse clicks: tier 1 (and force-click) cannot reach the button -->
+<button id="book" style="margin:40px" onclick="document.getElementById('status').textContent='booked'">Book Tickets</button>
+<div style="position:fixed;inset:0;background:rgba(0,0,0,0.01);z-index:10"></div>
+<p id="status">idle</p>
+</body></html>

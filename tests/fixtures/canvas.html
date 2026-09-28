@@ -1,0 +1,17 @@
+<!doctype html><html><body style="margin:0">
+<!-- Seat map drawn on canvas: there is no DOM element per seat, only vision can target one -->
+<canvas id="map" width="400" height="200"></canvas>
+<p id="status">no seat</p>
+<script>
+  const c = document.getElementById('map'), g = c.getContext('2d');
+  const rows = 'AB';
+  for (let r = 0; r < 2; r++) for (let s = 0; s < 5; s++) {
+    g.fillStyle = '#4a4'; g.fillRect(20 + s*70, 20 + r*80, 50, 50);
+    g.fillStyle = '#fff'; g.font = '16px sans-serif'; g.fillText(rows[r] + (s+1), 32 + s*70, 50 + r*80);
+  }
+  c.addEventListener('click', ev => {
+    const s = Math.floor((ev.offsetX - 20) / 70), r = Math.floor((ev.offsetY - 20) / 80);
+    if (s >= 0 && s < 5 && r >= 0 && r < 2) document.getElementById('status').textContent = 'seat ' + rows[r] + (s+1);
+  });
+</script>
+</body></html>
